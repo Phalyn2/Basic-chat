@@ -1,0 +1,114 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Messager</title> <!-- Judul halaman web yang ditampilkan di tab browser -->
+	<style>
+		body { /* Mengatur style untuk seluruh body halaman */
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			background-image: url(bg\ wa.jpeg);
+			background-size: cover;
+		}
+		header { /* Mengatur style untuk bagian header */
+			margin: 10px auto;
+            width: 310px;
+            background-color: #333;
+			color: #fff;
+			padding: 10px;
+			text-align: left;
+            border-radius: 5px;
+		}
+		.container { /* Mengatur style untuk container pesan */
+			margin: 10px auto;
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+		}
+		.chat { /* Mengatur style untuk bagian chat */
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			background-color: #f2f2f2;
+			padding: 10px;
+			overflow-y: scroll;
+		}
+		.chat .message { /* Mengatur style untuk setiap pesan */
+			margin-bottom: 10px;
+			padding: 10px;
+			border-radius: 5px;
+			max-width: 70%;
+		}
+		.chat .message.sent { /* Mengatur style untuk pesan yang dikirim */
+			align-self: flex-end;
+			background-color: #4CAF50;
+			color: #fff;
+		}
+		.chat .message.received { /* Mengatur style untuk pesan yang diterima */
+			align-self: flex-start;
+			background-color: #ddd;
+			color: #333;
+		}
+		.input { /* Mengatur style untuk bagian input pesan */
+			display: flex;
+			flex-direction: row;
+			background-color: #f2f2f2;
+			padding: 10px;
+		}
+		.input input[type="text"] { /* Mengatur style untuk input teks */
+			flex: 1;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			margin-right: 10px;
+		}
+		.input input[type="submit"] { /* Mengatur style untuk tombol submit */
+			background-color: #333;
+			color: #fff;
+			border: none;
+			padding: 10px;
+			border-radius: 5px;
+			cursor: pointer;
+            transition: background-color 0.3s ease;
+		}
+        .input input[type="submit"]:hover { /* Mengatur style untuk tombol submit saat di-hover */
+            background-color: #4CAF50;
+        }
+	</style>
+</head>
+<body> <!-- Bagian tubuh dokumen, berisi konten halaman web -->
+	<header> <!-- Bagian header halaman web -->
+        <p style="text-align:right"><i class="fas fa-video"></i> <!-- Ikon video dengan teks rata kanan -->
+		<p>Chrollo Lucilfer:3</p> <!-- Teks di header -->
+	</header>
+	<div class="container"> <!-- Container untuk chat -->
+		<div class="chat"> <!-- Bagian chat -->
+			<div class="message received">Hai</div> <!-- Pesan yang diterima -->
+			<div class="message sent">Hai juga</div> <!-- Pesan yang dikirim -->
+			<div class="message received">Apa kabar</div> 
+			<div class="message sent">Baik, kamu?</div>
+			<div class="message received">Baik juga</div> 
+			<div class="message sent">:3</div> 
+			<div class="message received">:3</div>
+		</div>
+		<div class="input"> <!-- Bagian input pesan -->
+			<input type="text" placeholder="Ketik pesan..."> <!-- Input teks untuk mengetik pesan -->
+			<input type="submit" value="Kirim" onclick="sendMessage()"> <!-- Tombol submit untuk mengirim pesan -->
+		</div>
+	</div>
+	<script>
+		function sendMessage() { /* Fungsi untuk mengirim pesan */
+			var input = document.querySelector('.input input[type="text"]'); /* Mengambil elemen input teks */
+			var message = input.value; /* Mengambil nilai dari input teks */
+			var chat = document.querySelector('.chat'); /* Mengambil elemen chat */
+			var newMessage = document.createElement('div'); /* Membuat elemen div baru */
+			newMessage.classList.add('message', 'sent'); /* Menambahkan class ke elemen baru */
+			newMessage.textContent = message; /* Menambahkan teks ke elemen baru */
+			chat.appendChild(newMessage); /* Menambahkan elemen baru ke chat */
+			input.value = ''; /* Mengosongkan input teks */
+		}
+	</script>
+</body>
+</html> <!-- Tag penutup untuk dokumen HTML -->
